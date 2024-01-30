@@ -1,68 +1,53 @@
 const path = require('path');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-	plugins: [
-		new HTMLWebpackPlugin({
-			filename: './index.html',
-		}),
-		new CleanWebpackPlugin(),
-		],
-	devtool: 'inline-source-map',
-	mode: 'development',
+	// entry: {
+	// 	// lodash: './node_modules/lodash',
+	// 	// jquery: './node_modules/jquery',
+	// 	header: {
+	// 		import: './modules/header/header.js',
+	// 	},
+	// 	body: {
+	// 		import: './modules/body/body.js',
+	// 		// dependOn: 'jquery',
+	// 	},
+	// 	footer: {
+	// 		import: './modules/footer/footer.js',
+	// 	},
+	// 	// shared: 'lodash',
+	// },
 	entry: {
-		header: {
-			import: './modules/header/header.js',
-			dependOn: 'shared',
-		},
-		body: {
-			import: './modules/body/body.js',
-			dependOn: 'shared',
-		},
-		footer: {
-			import: './modules/footer/footer.js',
-			dependOn: 'shared',
-		},
-		shared: 'jquery',
-	},
+    all: ["./modules/header/header.js", "./modules/body/body.js", "./modules/footer/footer.js"],
+  },
 	output: {
-		path: path.resolve(__dirname, 'public'),
+		path: path.resolve(__dirname, './public'),
 		filename: '[name].bundle.js',
 	},
-	optimization: {
-		splitChunks: {
-			chunks: 'all',
-		},
+	plugins: [
+		new CleanWebpackPlugin(),
+		new HtmlWebpackPlugin({
+      title: 'Holberton Dashboard',
+    }),
+	],
+	module: {
+		rules: [
+			{
+				test: /\.css$/i,
+				use: ['style-loader', 'css-loader'],
+			},
+			{
+				test: /\.(png|svg|jpg|jpeg|gif)$/i,
+				type: 'asset/resource',
+				use: ['file-loader'],
+			},
+		],
 	},
+	devtool: 'inline-source-map',
 	devServer: {
-		static: path.join(__dirname, './public'),
-		open: true,
+		contentBase: './public',
 		port: 8564,
 	},
-	performance: {
-		maxAssetSize: 1000000,
-	},  
-  module: {
-	rules: [
-		{
-			test: /\.css$/i,
-			use: ["css-loader", "style-loader"],
-		},
-		{
-			test: /\.(?:ico|gif|png|jpe?g|svg)$/i,
-			type: 'asset/resource',
-			use: [
-				"file-loader",
-				{
-					loader: "image-webpack-loader",
-					options: {
-							bypassingOnDebug: true,
-							disable: true,
-					},
-				},
-			],
-		},
-	],
-},
+	mode: 'development',
 };
