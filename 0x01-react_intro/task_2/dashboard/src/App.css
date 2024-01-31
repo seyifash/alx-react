@@ -1,0 +1,65 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+  background-color: #FFF;
+  font-family:Arial, Helvetica, sans-serif;
+}
+.App-header {
+  display: flex;
+  align-items: center;
+  color: #E0354B;
+  border-bottom: 3px solid #E0354B;
+}
+
+.App-header .App-logo {
+  width: 200px;
+}
+.App-header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+.App-body {
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  padding-top: 30px;
+  padding-left: 40px;
+  border-bottom: 3px solid #E0354B;
+}
+.App-body .form {
+  display: flex;
+  font-weight: 600;
+  font-size: 14px;
+}
+.App-body .form label {
+  margin-right: 10px;
+}
+.App-body .form input {
+  margin-right: 10px;
+  border: 1px solid rgb(204, 200, 200);
+}
+.App-body .form button {
+  width: 30px;
+  height: 20px;
+  background: #FFF;
+  color: #000;
+  font-size: 12px;
+  outline: none;
+  border: 1px solid rgb(204, 200, 200);
+}
+
+.App-footer {
+  display: flex;
+  justify-content: center;
+}
+.App-footer p {
+  font-style: italic;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+
+
+
+

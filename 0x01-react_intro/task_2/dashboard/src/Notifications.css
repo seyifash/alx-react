@@ -1,0 +1,21 @@
+.Notifications {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #E0354B;
+    border-style: dashed;
+    padding: 8px 10px;
+    position: relative;
+}
+.Notifications button {
+    border: none;
+    background: white;
+}
+.Notifications button img {
+    width: 10px;
+}
+.Notifications li[data-priority="default"] {
+    color: blue;
+}
+.Notifications li[data-priority="urgent"] {
+    color: red;
+}
