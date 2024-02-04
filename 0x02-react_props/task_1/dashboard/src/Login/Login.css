@@ -1,0 +1,29 @@
+.App-body {
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    padding-top: 30px;
+    padding-left: 40px;
+    border-bottom: 3px solid #E0354B;
+}
+.App-body .form {
+display: flex;
+font-weight: 600;
+font-size: 14px;
+}
+.App-body .form label {
+margin-right: 10px;
+}
+.App-body .form input {
+margin-right: 10px;
+border: 1px solid rgb(204, 200, 200);
+}
+.App-body .form button {
+width: 30px;
+height: 20px;
+background: #FFF;
+color: #000;
+font-size: 12px;
+outline: none;
+border: 1px solid rgb(204, 200, 200);
+}
