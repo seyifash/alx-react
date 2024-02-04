@@ -1,0 +1,14 @@
+.App-header {
+    display: flex;
+    align-items: center;
+    color: #E0354B;
+    border-bottom: 3px solid #E0354B;
+}
+
+.App-header .App-logo {
+    width: 200px;
+}
+.App-header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
