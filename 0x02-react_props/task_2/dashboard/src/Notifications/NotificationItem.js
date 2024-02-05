@@ -2,13 +2,13 @@ import React from "react";
 import './Notifications.css';
 
 
-const NotificationItem = (type, html, value) => {
+const NotificationItem = ({type, html, value}) => {
     return (
         <>
-        {type && value ? <li data-notification-type={type}>{value}</li> : null }
-        {html ? (<li data-urgent dangerouslySetHTML={{__html: html}}></li>) : null }
+        {value && <li data-notification-type={type}>{value}</li>}
+        {html && <li data-urgent='true' dangerouslySetInnerHTML={{ __html: html }}></li>}
         </>
-    )
+    );
 }
 
 export default NotificationItem

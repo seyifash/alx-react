@@ -17,8 +17,8 @@ const Notifications = () => {
 				<img style={{ display: 'inline' }} src={closeIcon} alt='Close' />
 			</button>
 			<ul>
-				<NotificationItem type='default' value='New course available' />
-				<NotificationItem type='default' value='New course available' />
+				<NotificationItem type='urgent' value='New course available' />
+				<NotificationItem type='default' value='New resume available' />
 				<NotificationItem type='default' html={getLatestNotification()} />
 			</ul>
 		</div>
