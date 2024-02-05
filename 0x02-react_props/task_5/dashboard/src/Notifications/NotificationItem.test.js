@@ -3,7 +3,7 @@ import NotificationItem from './NotificationItem';
 import { shallow } from 'enzyme';
 
 
-describe('rendering notification', () => {
+describe('rndering notification', () => {
     it('renders NotificationItem component without crashing', () => {
         const wrapper = shallow(<NotificationIem />);
         expect(wrapper.exists()).toBe(true);
