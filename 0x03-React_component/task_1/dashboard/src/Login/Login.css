@@ -1,29 +1,16 @@
 .App-body {
-    display: flex;
-    flex-direction: column;
-    height: 350px;
-    padding-top: 30px;
-    padding-left: 40px;
-    border-bottom: 3px solid #E0354B;
+	font-size: 1.4rem;
+	padding: 1.2em;
+	height: 45%;
 }
-.App-body .form {
-display: flex;
-font-weight: 600;
-font-size: 14px;
+
+.form-inputs {
+	display: flex;
+	gap: 2em;
+	align-items: center;
 }
-.App-body .form label {
-margin-right: 10px;
-}
-.App-body .form input {
-margin-right: 10px;
-border: 1px solid rgb(204, 200, 200);
-}
-.App-body .form button {
-width: 30px;
-height: 20px;
-background: #FFF;
-color: #000;
-font-size: 12px;
-outline: none;
-border: 1px solid rgb(204, 200, 200);
+
+.form-inputs .input input {
+	height: 1.4rem;
+	margin-left: 10px;
 }
