@@ -48,38 +48,40 @@ describe('App tests', () => {
 	});
 });
 
-describe('When ctrl + h is pressed', () => {
-	it('calls logOut function', () => {
-		const mocked = jest.fn();
-		const wrapper = mount(<App logOut={mocked} />);
-		const event = new KeyboardEvent('keydown', { ctrlKey: true, key: 'h' });
-		document.dispatchEvent(event);
 
-		expect(mocked).toHaveBeenCalledTimes(1);
-		wrapper.unmount();
+
+describe("When ctrl + h is pressed", () => {
+	it("calls logOut function", () => {
+	  const mocked = jest.fn();
+	  const wrapper = mount(<App logOut={mocked} />);
+	  const event = new KeyboardEvent("keydown", { ctrlKey: true, key: "h" });
+	  document.dispatchEvent(event);
+
+	  expect(mocked).toHaveBeenCalledTimes(1);
+	  wrapper.unmount();
 	});
 
-	window.alert = jest.fn();
-	it('checks that alert function is called', () => {
-		const wrapper = mount(<App />);
-		const spy = jest.spyOn(window, 'alert');
-		const event = new KeyboardEvent('keydown', { ctrlKey: true, key: 'h' });
-		document.dispatchEvent(event);
+	document.alert = jest.fn();
+	it("checks that alert function is called", () => {
+	  const wrapper = mount(<App />);
+	  const spy = jest.spyOn(window, "alert");
+	  const event = new KeyboardEvent("keydown", { ctrlKey: true, key: "h" });
+	  document.dispatchEvent(event);
 
-		expect(spy).toHaveBeenCalled();
-		spy.mockRestore();
-		wrapper.unmount();
+	  expect(spy).toHaveBeenCalled();
+	  spy.mockRestore();
+	  wrapper.unmount();
 	});
 
 	it('checks that the alert is "Logging you out"', () => {
 		const wrapper = mount(<App />);
-		const spy = jest.spyOn(window, 'alert');
-		const event = new KeyboardEvent('keydown', { ctrlKey: true, key: 'h' });
+		const spy = jest.spyOn(window, "alert");
+		const event = new KeyboardEvent("keydown", { ctrlKey: true, key: "h" });
 		document.dispatchEvent(event);
 
-		expect(spy).toHaveBeenCalledWith('Logging you out');
+		expect(spy).toHaveBeenCalledWith("Logging you out");
 		jest.restoreAllMocks();
 		wrapper.unmount();
-	});
-	window.alert.mockClear();
+		});
+	document.alert.mockClear();
 });
