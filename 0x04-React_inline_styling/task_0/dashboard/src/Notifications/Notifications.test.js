@@ -141,68 +141,18 @@ describe('Notification tests', () => {
 		);
 	});
 
-	wrapper.setProps({ listNotifications: listNotifications });
-
-  // Assert that shouldComponentUpdate returns false
-  expect(wrapper.instance().shouldComponentUpdate()).toBe(false);
-
-
-it('re-renders if listNotifications is changed', () => {
-  const newListNotifications = [
-    { id: 1, type: 'default', value: 'New course available' },
-    { id: 2, type: 'urgent', value: 'New resume available' },
-    { id: 3, type: 'default', html: getLatestNotification() },
-    { id: 4, type: 'default', value: 'Foo' },
-  ];
-
-  const wrapper = shallow(
-    <Notifications
-      displayDrawer={true}
-      listNotifications={listNotifications}
-    />
-  );
-
-  // Simulate a re-render with a different listNotifications
-  wrapper.setProps({ listNotifications: newListNotifications });
-
-  // Assert that shouldComponentUpdate returns true
-  expect(wrapper.instance().shouldComponentUpdate()).toBe(true);
-
-	
-});
-});
-/*it('doesnt re-render when the list passed as prop is the same', () => {
-		const wrapper = shallow(
-			<Notifications
-				displayDrawer={true}
-				listNotifications={listNotifications}
-			/>
-		);
-
-		expect(wrapper.instance().shouldComponentUpdate(listNotifications)).toBe(
-			false
-		);
+	it('does not re-render when updating props with the same list', () => {
+		const wrapper = shallow(<Notifications displayDrawer={true} listNotifications={listNotifications} />);
+		const nextProps = { displayDrawer: true, listNotifications: listNotifications };
+		expect(wrapper.instance().shouldComponentUpdate(nextProps)).toBe(false);
 	});
-
-	it('re-renders if listNotifications if listNotifications is changed', () => {
-		const newListNotifications = [
-			{ id: 1, type: 'default', value: 'New course available' },
-			{ id: 2, type: 'urgent', value: 'New resume available' },
-			{ id: 3, type: 'default', html: getLatestNotification() },
-			{ id: 4, type: 'default', value: 'Foo' },
-		];
-
-		const wrapper = shallow(
-			<Notifications
-				displayDrawer={true}
-				listNotifications={listNotifications}
-			/>
-		);
-
-		expect(wrapper.instance().shouldComponentUpdate(newListNotifications)).toBe(
-			true
-		);
-	});*/
+	
+	it('re-renders when updating props with a longer list', () => {
+		const wrapper = shallow(<Notifications displayDrawer={true} listNotifications={listNotifications} />);
+		const nextProps = { displayDrawer: true, listNotifications: [...listNotifications, { id: 3, type: 'default', value: 'New notification' }] };
+		expect(wrapper.instance().shouldComponentUpdate(nextProps)).toBe(true);
+	});
+});
 
 describe('onclick event behaves as it should', () => {
 	it('should call console.log', () => {
@@ -216,4 +166,4 @@ describe('onclick event behaves as it should', () => {
 		expect(spy).toBeCalledWith(1);
 		spy.mockRestore();
 	});
-}); 
+});
