@@ -12,7 +12,7 @@ afterEach(() => {
 	StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
 });
 
-const listNotifications = [
+let listNotifications = [
 	{ id: 1, type: 'default', value: 'New course available' },
 	{ id: 2, type: 'urgent', value: 'New resume available' },
 	{ id: 3, type: 'urgent', html: getLatestNotification() },
@@ -23,6 +23,7 @@ describe('Notification tests', () => {
 
 		expect(wrapper).toBeDefined();
 	});
+
 
 	it('renders correct list items', () => {
 		const wrapper = shallow(
@@ -41,12 +42,13 @@ describe('Notification tests', () => {
 			'<li class="default_1tsdo2i" data-notification-type="default">New course available</li>'
 		);
 		expect(wrapper.find('ul').childAt(1).html()).toEqual(
-			'<li data-notification-type="urgent">New resume available</li>'
+			'<li class=\"urgent_137u7ef\" data-notification-type=\"urgent\">New resume available</li>'
 		);
 		expect(wrapper.find('ul').childAt(2).html()).toEqual(
-			`<li data-urgent=\"true\">${getLatestNotification()}</li>`
+			'<li data-urgent=\"true\" class=\"urgent_137u7ef\"><strong>Urgent Requirement</strong> - complete by EOD</li>'
 		);
 	});
+
 
 	it('renders an unordered list', () => {
 		const wrapper = shallow(
