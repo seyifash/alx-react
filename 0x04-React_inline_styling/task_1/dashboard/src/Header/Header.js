@@ -5,7 +5,7 @@ import { StyleSheet, css } from 'aphrodite';
 const styles = StyleSheet.create({
 	'App-header': {
 		fontSize: '1.4rem',
-		color: '#E0354B',
+		color: 'red',
 		display: 'flex',
 		alignItems: 'center',
 		padding: '1.2em',

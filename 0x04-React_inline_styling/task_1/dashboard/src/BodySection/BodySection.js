@@ -10,20 +10,12 @@ const BodySection = ({ title, children }) => {
 	);
 };
 
-/*BodySection.propTypes = {
+BodySection.propTypes = {
 	title: PropTypes.string,
 	children: PropTypes.oneOfType([
 		PropTypes.arrayOf(PropTypes.node),
 		PropTypes.node,
-	]).isRequired,
-};*/
-
-BodySection.propTypes = {
-	title: PropTypes.string,
-	children: PropTypes.oneOfType([
-	  PropTypes.arrayOf(PropTypes.node),
-	  PropTypes.node,
 	]),
-  };
+};
 
 export default BodySection;

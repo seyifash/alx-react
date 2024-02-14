@@ -36,8 +36,9 @@ describe('WithLogging tests', () => {
 
     // Ensure console.log is called with the correct message on unmount
     expect(spy).toHaveBeenCalledWith('Component TestComponent is going to unmount');
-
-    // Restore the mock after the test
-    spy.mockRestore();
+	    // Restore the mock after the test
+		spy.mockRestore();
+	});
   });
-});
+  
+  
