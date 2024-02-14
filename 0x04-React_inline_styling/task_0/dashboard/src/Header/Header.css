@@ -1,19 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;1,300&display=swap');
-
-
-.App-logo {
-  height: 30vmin;
-
+.App-header {
+	font-size: 1.4rem;
+	color: red;
+	display: flex;
+	align-items: center;
+	padding: 1.2em;
 }
 
-.App-header {
-
-  align-items: top;
-  font-size: 20px;
-  color: #F2003A;
-  display: flex;
-  border-bottom: 3px solid #F2003A;
-  margin-bottom:  50px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400; 
+.App-header img {
+	width: 250px;
+	height: 250px;
 }

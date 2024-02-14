@@ -1,53 +1,26 @@
-.course-container {
-	min-height: 26rem;
-  }
-  
-  .course-wrapper {
-	padding: 1rem;
-  }
-  
-  table {
-	width: 100%;
-	border-spacing: 0;
-  }
-  
-  thead tr:first-of-type th {
-	text-align: center;
-  }
-  
-  th,
-  td {
-	padding: 0.25rem;
-	border: 1px solid lightgray;
-  }
-  
-  th {
+table {
+	margin-top: 2em;
+	width: 90%;
+	height: fit-content;
+	border: 1px solid #ddd;
+	font-size: 1.2rem;
+	margin-bottom: 15em;
+}
+
+th {
+	border-bottom: 1px solid #ddd;
+}
+
+th,
+td {
+	width: 80%;
+}
+
+table {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+tr:nth-child(2) {
 	text-align: left;
-  }
-  
-  thead tr:last-of-type th:first-of-type,
-  tbody tr td:first-of-type {
-	border-right: 0;
-	border-left-width: 1px;
-	border-bottom-width: 0px;
-	border-top-width: 0px;
-  }
-  
-  thead tr:last-of-type th:last-of-type,
-  tbody tr td:last-of-type {
-	border-bottom-width: 0px;
-	border-top-width: 0px;
-	border-left-width: 0px;
-  }
-  
-  thead tr:last-of-type th:last-of-type {
-	border-bottom-width: 1px;
-  }
-  
-  thead tr:last-of-type th:first-of-type {
-	border-bottom-width: 1px;
-  }
-  
-  tbody tr:last-child td {
-	border-bottom-width: 1px;
-  }
+}

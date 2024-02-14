@@ -1,42 +1,31 @@
-import React, { Component } from 'react';
-import { mount } from 'enzyme';
-
+import React from 'react';
+import { shallow } from 'enzyme';
 import WithLogging from './WithLogging';
-import Login from '../Login/Login';
 
-describe('WithLogging', () => {
-  test('console.log called on mount', () => {
-    console.log = jest.fn();
+const TestComponent = () => <p>Test Component</p>;
 
-    const TestWithLogging = WithLogging(() => <p />);
-    const wrapper = mount(<TestWithLogging />);
+describe('WithLogging tests', () => {
+	it('should call console.log on mount and dismount', () => {
+		const spy = jest.spyOn(console, 'log').mockImplementation();
+		const NewComponent = WithLogging(TestComponent);
+		const wrapper = shallow(<NewComponent />);
 
-    expect(console.log).toHaveBeenCalledWith(`Component Component is mounted`);
+		expect(spy).toBeCalledTimes(1);
+		wrapper.unmount();
+		expect(spy).toBeCalledTimes(2);
+		spy.mockRestore();
+	});
 
-    wrapper.unmount();
+	it('should log out the right message on mount and dismount', () => {
+		const spy = jest.spyOn(console, 'log').mockImplementation();
+		const NewComponent = WithLogging(TestComponent);
+		const wrapper = shallow(<NewComponent />);
 
-    expect(console.log).toHaveBeenCalledWith(
-      `Component Component is going to unmount`
-    );
-
-    expect(console.log).toHaveBeenCalledTimes(2);
-  });
-
-  test('correctly logs component name', () => {
-    console.log = jest.fn();
-
-    const LoginWithLogging = WithLogging(Login);
-    const wrapper = mount(<LoginWithLogging />);
-
-    expect(console.log).toHaveBeenCalledWith(`Component Login is mounted`);
-
-    wrapper.unmount();
-
-    expect(console.log).toHaveBeenCalledWith(
-      `Component Login is going to unmount`
-    );
-
-    expect(console.log).toHaveBeenCalledTimes(2);
-  });
+		expect(spy).toBeCalledTimes(1);
+		expect(spy).toBeCalledWith('Component TestComponent is mounted');
+		wrapper.unmount();
+		expect(spy).toHaveBeenCalledTimes(2);
+		expect(spy).toBeCalledWith('Component Test is going to unmount');
+		spy.mockRestore();
+	});
 });
-

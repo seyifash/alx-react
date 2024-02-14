@@ -1,5 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;1,300&display=swap');
-
-.App-logo {
-  height: 30vmin;
+.App {
+	height: 100vh;
+	max-width: 100vw;
 }
+
+.heading-section {
+	border-bottom: 4px solid red;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row-reverse;
+}
+
+
