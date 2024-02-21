@@ -1,4 +1,4 @@
-const getImmutableObject = require('./0-fromjs');
+import getImmutableObject from './0-fromjs.js';
 
 const inputObject = {
     fear: true,
